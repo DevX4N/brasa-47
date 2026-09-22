@@ -1,0 +1,108 @@
+---
+import Figure from './Figure.astro';
+import Grate from './Grate.astro';
+import { photos } from '../data/images';
+---
+
+<section class="man section" id="experiencia" aria-labelledby="man-t">
+  <div class="shell man__grid">
+    <div class="man__text">
+      <h2 class="man__title display" id="man-t" data-rise>
+        Tudo começa<br />com o fogo.
+      </h2>
+
+      <div class="man__body" data-rise style="--rise-delay:120ms">
+        <p class="lead">
+          No Brasa 47, <strong>o fogo dita o ritmo.</strong> Selecionamos
+          ingredientes excepcionais, respeitamos o tempo de cada corte e
+          deixamos que a brasa faça aquilo que nenhuma tecnologia consegue
+          substituir.
+        </p>
+        <p class="lead man__close">
+          O resultado não é apenas um prato.<br />
+          <strong>É uma experiência.</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="man__media">
+      <Figure
+        photo={photos.manifesto}
+        sizes="(min-width: 1024px) 38vw, 88vw"
+        widths={[420, 700, 1000, 1400]}
+        delay={160}
+        lift
+      />
+      <p class="man__cap stamp">A brasa é acesa às 15h.<br />Nada entra antes de ela virar calor limpo.</p>
+    </div>
+  </div>
+
+  <div class="man__rule shell">
+    <Grate hot="18%" />
+  </div>
+</section>
+
+<style>
+  .man {
+    padding-bottom: var(--section-tight);
+  }
+
+  .man__grid {
+    display: grid;
+    row-gap: clamp(var(--s-7), 6vw, var(--s-10));
+    column-gap: clamp(var(--s-5), 2.4vw, var(--s-7));
+  }
+
+  .man__title {
+    font-size: var(--t-xl);
+    font-weight: 400;
+  }
+
+  .man__body {
+    margin-top: clamp(var(--s-6), 4vw, var(--s-8));
+    display: grid;
+    gap: var(--s-6);
+  }
+
+  .man__close {
+    color: var(--bone);
+    opacity: 0.92;
+  }
+
+  .man__cap {
+    margin-top: var(--s-4);
+    color: var(--ash-dim);
+    line-height: 1.8;
+    letter-spacing: 0.12em;
+    /* Sem max-width: `ch` a 11px dá ~6px, e 38ch cortava a legenda em
+       235px — a coluna já é o limite certo. */
+    max-width: none;
+  }
+
+  .man__rule {
+    margin-top: var(--section-tight);
+  }
+
+  @media (min-width: 1024px) {
+    .man__grid {
+      grid-template-columns: repeat(12, 1fr);
+      align-items: start;
+    }
+
+    .man__text {
+      grid-column: 1 / span 6;
+      /* O texto desce; a foto sobe. A composição nunca alinha no topo. */
+      padding-top: clamp(var(--s-8), 7vw, 132px);
+    }
+
+    .man__media {
+      grid-column: 8 / span 5;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .man__media {
+      grid-column: 8 / span 5;
+    }
+  }
+</style>

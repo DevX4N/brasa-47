@@ -1,0 +1,78 @@
+---
+import { testimonials } from '../data/site';
+---
+
+{/*
+  O momento calmo da página. Sem foto, sem barra acesa, sem acento.
+  A única seção que apaga o fundo de brasa e fica com o carvão puro.
+  Não adicionar nada aqui — o vazio é o que ela faz.
+*/}
+<section class="say" aria-label="O que dizem">
+  <div class="shell say__in">
+    {testimonials.map((t, i) => (
+      <figure class="say__one" data-rise style={`--rise-delay:${i * 160}ms`}>
+        <blockquote class="say__q display">{t.quote}</blockquote>
+        <figcaption class="say__a">— {t.author}</figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style>
+  .say {
+    position: relative;
+    background: var(--void);
+    padding-block: clamp(104px, 15vw, 240px);
+  }
+
+  .say__in {
+    display: grid;
+    /* row-gap, não gap: com 12 colunas no desktop o mesmo valor viraria
+       column-gap e empurraria a grade 120px para fora do container. */
+    row-gap: clamp(var(--s-9), 11vw, 180px);
+  }
+
+  .say__q {
+    font-family: var(--display);
+    font-size: clamp(1.75rem, 4.6vw, 3.1rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+    color: var(--bone);
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+
+  .say__a {
+    margin-top: clamp(var(--s-5), 3vw, var(--s-7));
+    font-size: var(--t-micro);
+    letter-spacing: var(--track-micro);
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ash-dim);
+  }
+
+  @media (min-width: 900px) {
+    /* Alternar esquerda/direita é truque de template. A diferença entre
+       as duas vozes é de escala e de recuo, não de espelho. */
+    .say__in {
+      /* minmax(0,1fr): com `1fr` puro o min-content de uma citação em
+         display grande estoura a trilha e empurra a página para o lado. */
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    .say__one:nth-child(odd) {
+      grid-column: 1 / span 8;
+    }
+
+    .say__one:nth-child(even) {
+      grid-column: 4 / span 7;
+    }
+
+    .say__one:nth-child(even) .say__q {
+      font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+      max-width: 26ch;
+    }
+  }
+</style>

@@ -1,0 +1,17 @@
+{
+  "name": "brasa-47",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.3.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

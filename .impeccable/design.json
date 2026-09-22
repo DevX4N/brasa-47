@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-21T03:02:16.241Z",
+  "title": "Design System: BRASA 47",
+  "extensions": {
+    "colorMeta": {
+      "void": {
+        "role": "neutral",
+        "displayName": "Carvão",
+        "canonical": "#090909",
+        "tonalRamp": [
+          "#141414",
+          "#262626",
+          "#3d3d3d",
+          "#595959",
+          "#7a7a7a",
+          "#9e9e9e",
+          "#c7c7c7",
+          "#ededed"
+        ]
+      },
+      "iron": {
+        "role": "neutral",
+        "displayName": "Ferro Frio",
+        "canonical": "#11100e",
+        "tonalRamp": [
+          "#161512",
+          "#2a2723",
+          "#433f37",
+          "#625c51",
+          "#867e6f",
+          "#a7a195",
+          "#ccc9c1",
+          "#efeeeb"
+        ]
+      },
+      "iron-2": {
+        "role": "neutral",
+        "displayName": "Ferro com Calor Residual",
+        "canonical": "#16140f",
+        "tonalRamp": [
+          "#181611",
+          "#2d291f",
+          "#494232",
+          "#6a6048",
+          "#928463",
+          "#b0a68c",
+          "#d2cbbc",
+          "#f1efea"
+        ]
+      },
+      "scale": {
+        "role": "neutral",
+        "displayName": "Casca de Laminação",
+        "canonical": "#1f1c17",
+        "tonalRamp": [
+          "#171511",
+          "#2c2821",
+          "#463f34",
+          "#665d4c",
+          "#8d7f68",
+          "#aca290",
+          "#cfc9bf",
+          "#f0eeeb"
+        ]
+      },
+      "bone": {
+        "role": "neutral",
+        "displayName": "Osso",
+        "canonical": "#f3efe7",
+        "tonalRamp": [
+          "#1b170e",
+          "#332b1a",
+          "#524429",
+          "#77633c",
+          "#a38852",
+          "#bea97e",
+          "#dacdb4",
+          "#f3efe7"
+        ]
+      },
+      "ash": {
+        "role": "neutral",
+        "displayName": "Cinza",
+        "canonical": "#9a9388",
+        "tonalRamp": [
+          "#161513",
+          "#292723",
+          "#423e38",
+          "#615b52",
+          "#847d70",
+          "#a6a096",
+          "#cbc8c2",
+          "#efedec"
+        ]
+      },
+      "ash-dim": {
+        "role": "neutral",
+        "displayName": "Cinza Apagado",
+        "canonical": "#8a8378",
+        "tonalRamp": [
+          "#161513",
+          "#292724",
+          "#423e39",
+          "#605b53",
+          "#837c72",
+          "#a5a097",
+          "#cbc8c3",
+          "#eeedec"
+        ]
+      },
+      "ember": {
+        "role": "primary",
+        "displayName": "Brasa",
+        "canonical": "#c96a36",
+        "tonalRamp": [
+          "#201109",
+          "#3c2010",
+          "#60331a",
+          "#8d4a26",
+          "#c16634",
+          "#d68e66",
+          "#e7bda7",
+          "#f7eae3"
+        ]
+      },
+      "ember-hot": {
+        "role": "primary",
+        "displayName": "Brasa Viva",
+        "canonical": "#e8a05e",
+        "tonalRamp": [
+          "#241405",
+          "#43250a",
+          "#6b3b0f",
+          "#9c5616",
+          "#d6761f",
+          "#e79b55",
+          "#f1c59d",
+          "#fbede0"
+        ]
+      },
+      "ember-deep": {
+        "role": "primary",
+        "displayName": "Brasa Funda",
+        "canonical": "#8f3d25",
+        "tonalRamp": [
+          "#200e08",
+          "#3d1a10",
+          "#612919",
+          "#8e3c25",
+          "#c25332",
+          "#d77f65",
+          "#e8b5a6",
+          "#f8e7e3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Só o h1 do herói, quebrado à mão em três linhas."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Abertura de seção: manifesto, reserva, ambiente."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos internos e nomes de corte."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "O parágrafo que sustenta um título; máximo 62ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido e campos de formulário."
+      },
+      "label": {
+        "displayName": "Registro estampado",
+        "purpose": "Horário, cidade, unidade, seção, disclaimer. Caixa alta, 0.2em de tracking."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curva única do mundo: exponencial de saída. O fogo sobe rápido e assenta."
+      },
+      {
+        "name": "ease-cool",
+        "value": "cubic-bezier(0.33, 0, 0.1, 1)",
+        "purpose": "Esfriamento: usado só na opacidade do calor da barra."
+      },
+      {
+        "name": "t-fast",
+        "value": "180ms",
+        "purpose": "Micro-resposta: skip link, mudanças de cor pequenas."
+      },
+      {
+        "name": "t-mid",
+        "value": "420ms",
+        "purpose": "Estado padrão: hover, foco, calor do botão."
+      },
+      {
+        "name": "t-slow",
+        "value": "900ms",
+        "purpose": "Entrada de conteúdo: subida, halo, graduação de foto."
+      },
+      {
+        "name": "reveal-unveil",
+        "value": "clip-path 1.15s var(--ease)",
+        "purpose": "A foto é revelada de baixo para cima, como calor subindo. O clip mora no filho."
+      },
+      {
+        "name": "reveal-draw",
+        "value": "transform 1.1s var(--ease)",
+        "purpose": "A barra irradia do ponto quente para fora (transform-origin em --hot)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "1ms",
+        "purpose": "Com prefers-reduced-motion todas as durações caem para 1ms e nada fica escondido."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-wide",
+        "value": "560px"
+      },
+      {
+        "name": "tablet",
+        "value": "620px"
+      },
+      {
+        "name": "tablet-wide",
+        "value": "720px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      },
+      {
+        "name": "container",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão Sólido",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "O CTA da casa: uma peça de ferro em cobre chapado que esquenta ao ser tocada.",
+      "html": "<button class=\"ds-btn-solid\">Reservar mesa<svg width=\"16\" height=\"10\" viewBox=\"0 0 16 10\" fill=\"none\" aria-hidden=\"true\"><path d=\"M1 5h13M10.5 1 14.5 5l-4 4\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"square\"/></svg></button>",
+      "css": ".ds-btn-solid{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:12px 32px;border:1px solid var(--ember,#c96a36);border-radius:2px;background:var(--ember,#c96a36);color:var(--void,#090909);font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.04em;white-space:nowrap;cursor:pointer;transition:background 420ms cubic-bezier(.16,1,.3,1),border-color 420ms cubic-bezier(.16,1,.3,1)}.ds-btn-solid svg{transition:transform 420ms cubic-bezier(.16,1,.3,1)}.ds-btn-solid:hover,.ds-btn-solid:focus-visible{background:linear-gradient(0deg,var(--ember-hot,#e8a05e) 0%,var(--ember,#c96a36) 100%);border-color:var(--ember-hot,#e8a05e)}.ds-btn-solid:hover svg,.ds-btn-solid:focus-visible svg{transform:translateX(5px)}.ds-btn-solid:focus-visible{outline:2px solid var(--ember-hot,#e8a05e);outline-offset:3px}"
+    },
+    {
+      "name": "Botão de Contorno",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Ação secundária: ferro frio onde o calor sobe de baixo para preencher.",
+      "html": "<button class=\"ds-btn-outline\">Conhecer o menu</button>",
+      "css": ".ds-btn-outline{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:12px 32px;border:1px solid rgba(255,255,255,.16);border-radius:2px;background:transparent;color:var(--bone,#f3efe7);font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.875rem;font-weight:600;letter-spacing:.04em;white-space:nowrap;cursor:pointer;overflow:hidden;isolation:isolate;transition:border-color 420ms cubic-bezier(.16,1,.3,1)}.ds-btn-outline::before{content:\"\";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,var(--ember,#c96a36) 0%,var(--ember-deep,#8f3d25) 100%);transform:scaleY(0);transform-origin:50% 100%;transition:transform 420ms cubic-bezier(.16,1,.3,1)}.ds-btn-outline:hover::before,.ds-btn-outline:focus-visible::before{transform:scaleY(1)}.ds-btn-outline:hover,.ds-btn-outline:focus-visible{border-color:var(--ember,#c96a36)}.ds-btn-outline:focus-visible{outline:2px solid var(--ember-hot,#e8a05e);outline-offset:3px}"
+    },
+    {
+      "name": "Botão Discreto",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Link de ação sem caixa: só a aresta inferior, que acende.",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\">Ver a casa<svg width=\"16\" height=\"10\" viewBox=\"0 0 16 10\" fill=\"none\" aria-hidden=\"true\"><path d=\"M1 5h13M10.5 1 14.5 5l-4 4\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-btn-quiet{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:12px 0;border:0;border-bottom:1px solid rgba(255,255,255,.16);background:none;color:var(--bone,#f3efe7);font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.875rem;font-weight:600;letter-spacing:.04em;text-decoration:none;white-space:nowrap;cursor:pointer;transition:color 420ms cubic-bezier(.16,1,.3,1),border-color 420ms cubic-bezier(.16,1,.3,1)}.ds-btn-quiet svg{transition:transform 420ms cubic-bezier(.16,1,.3,1)}.ds-btn-quiet:hover,.ds-btn-quiet:focus-visible{color:var(--ember-hot,#e8a05e);border-bottom-color:var(--ember,#c96a36)}.ds-btn-quiet:hover svg,.ds-btn-quiet:focus-visible svg{transform:translateX(5px)}"
+    },
+    {
+      "name": "Campo de Formulário",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Entrada sobre fundo escuro: aresta de 1px que vira cobre no foco, com o fundo ganhando 6% de brasa.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-tel\">Telefone</label><input id=\"ds-tel\" type=\"tel\" placeholder=\"(41) 99999-9999\"></div>",
+      "css": ".ds-field{display:grid;gap:8px;font-family:Manrope,ui-sans-serif,system-ui,sans-serif}.ds-field label{font-size:.8125rem;font-weight:600;letter-spacing:.02em;color:var(--bone,#f3efe7)}.ds-field input{width:100%;min-height:48px;padding:12px 16px;background:rgba(255,255,255,.032);border:1px solid rgba(255,255,255,.1);border-radius:2px;color:var(--bone,#f3efe7);font:inherit;font-size:.9375rem;transition:border-color 420ms cubic-bezier(.16,1,.3,1),background 420ms cubic-bezier(.16,1,.3,1)}.ds-field input::placeholder{color:var(--ash-dim,#8a8378);opacity:1}.ds-field input:hover{border-color:rgba(255,255,255,.16)}.ds-field input:focus{outline:none;border-color:var(--ember,#c96a36);background:rgba(201,106,54,.06)}.ds-field input:focus-visible{outline:2px solid var(--ember-hot,#e8a05e);outline-offset:3px}"
+    },
+    {
+      "name": "Link de Navegação",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Item do menu: a barra da grelha em miniatura crescendo da esquerda.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Experiência</a><a href=\"#\">Menu</a><a href=\"#\">A Casa</a></nav>",
+      "css": ".ds-nav{display:flex;gap:32px;font-family:Manrope,ui-sans-serif,system-ui,sans-serif}.ds-nav a{position:relative;padding:8px 0;font-size:.8125rem;font-weight:500;color:var(--ash,#9a9388);text-decoration:none;transition:color 420ms cubic-bezier(.16,1,.3,1)}.ds-nav a::after{content:\"\";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ember,#c96a36);transform:scaleX(0);transform-origin:0 50%;transition:transform 420ms cubic-bezier(.16,1,.3,1)}.ds-nav a:hover,.ds-nav a:focus-visible{color:var(--bone,#f3efe7)}.ds-nav a:hover::after,.ds-nav a:focus-visible::after{transform:scaleX(1)}"
+    },
+    {
+      "name": "Barra da Grelha",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A primitiva estrutural do mundo e a única divisória: aresta acesa, corpo, sombra por baixo, com --hot e --heat como estado.",
+      "html": "<div class=\"ds-grate\" style=\"--hot:32%;--heat:1\"></div>",
+      "css": ".ds-grate{position:relative;height:3px;width:100%;background:linear-gradient(180deg,rgba(255,255,255,.16) 0 1px,rgba(255,255,255,.03) 1px 2px,rgba(0,0,0,.55) 2px 3px);transform-origin:var(--hot,50%) 50%}.ds-grate::before{content:\"\";position:absolute;inset:-1px 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--ember-hot,#e8a05e) var(--hot,50%),transparent);opacity:var(--heat,0);transition:opacity 420ms cubic-bezier(.33,0,.1,1)}.ds-grate::after{content:\"\";position:absolute;left:0;right:0;top:-10px;height:26px;pointer-events:none;background:radial-gradient(46% 100% at var(--hot,50%) 40%,rgba(201,106,54,.4),transparent 72%);opacity:var(--heat,0);transition:opacity 900ms cubic-bezier(.33,0,.1,1)}"
+    },
+    {
+      "name": "Registro Estampado",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "O texto miúdo da casa: caixa alta, 0.2em de tracking, entrelinha folgada. Variante em cobre para a assinatura da marca.",
+      "html": "<p class=\"ds-stamp\">Terça — Domingo · 18:30 — 00:00</p><p class=\"ds-stamp ds-stamp-ember\">Steakhouse &amp; Fire Kitchen</p>",
+      "css": ".ds-stamp{margin:0 0 8px;font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.6875rem;font-weight:600;letter-spacing:.2em;line-height:1.7;text-transform:uppercase;color:var(--ash,#9a9388);font-variant-numeric:tabular-nums lining-nums}.ds-stamp-ember{color:var(--ember,#c96a36)}"
+    },
+    {
+      "name": "Registro Numérico",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "O número da casa: display enorme em numerais tabulares, unidade em sans sobrescrita em cobre, legenda e nota abaixo.",
+      "html": "<div class=\"ds-register\"><p class=\"ds-register-figure\"><span>900</span><span class=\"ds-register-unit\">°C</span></p><p class=\"ds-register-label\">temperatura da brasa</p><p class=\"ds-register-note\">no ponto de selagem</p></div>",
+      "css": ".ds-register{position:relative;padding:32px 0}.ds-register-figure{margin:0;font-family:\"Bodoni Moda\",Didot,Georgia,serif;font-size:clamp(3.2rem,11vw,4.6rem);font-weight:400;line-height:.86;letter-spacing:-.03em;color:var(--bone,#f3efe7);font-variant-numeric:tabular-nums lining-nums}.ds-register-unit{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.26em;font-weight:600;letter-spacing:.1em;text-transform:lowercase;color:var(--ember,#c96a36);margin-left:.22em;vertical-align:.9em}.ds-register-label{margin:16px 0 0;font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.9375rem;line-height:1.35;color:var(--bone,#f3efe7)}.ds-register-note{margin:8px 0 0;font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.6875rem;font-weight:600;letter-spacing:.14em;line-height:1.6;text-transform:uppercase;color:var(--ash-dim,#8a8378)}"
+    },
+    {
+      "name": "Banda de Corte",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A linha editorial que substitui o card de produto: nome em escala de display, preço na mesma linha de base, e um só palco de foto que troca conforme a linha sob o ponteiro.",
+      "html": "<ul class=\"ds-cuts\"><li class=\"ds-cut\"><div class=\"ds-cut-in\"><h3 class=\"ds-cut-name\">Ancho <span class=\"ds-cut-wt\">350g</span></h3><p class=\"ds-cut-price\">R$ 129</p><p class=\"ds-cut-detail\">Angus · brasa aberta · manteiga defumada</p></div></li></ul>",
+      "css": ".ds-cuts{list-style:none;padding:0;margin:0;position:relative}.ds-cut{position:relative}.ds-cut-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:48px;row-gap:16px;padding:48px 0 64px}.ds-cut-name{grid-column:1;margin:0;font-family:\"Bodoni Moda\",Didot,Georgia,serif;font-size:clamp(2.5rem,3.4vw,3.4rem);font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--bone,#f3efe7);transition:color 420ms cubic-bezier(.16,1,.3,1)}.ds-cut-wt{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ember,#c96a36)}.ds-cut-price{grid-column:2;grid-row:1;margin:0;text-align:right;font-family:\"Bodoni Moda\",Didot,Georgia,serif;font-size:1.7rem;font-weight:500;color:var(--bone,#f3efe7)}.ds-cut-detail{grid-column:1/-1;margin:0;font-family:Manrope,ui-sans-serif,system-ui,sans-serif;font-size:.9375rem;line-height:1.55;color:var(--ash,#9a9388);transition:color 420ms cubic-bezier(.16,1,.3,1)}.ds-cut:hover .ds-cut-name{color:var(--ember-hot,#e8a05e)}.ds-cut:hover .ds-cut-detail{color:var(--bone,#f3efe7)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Grelha",
+    "overview": "A estrutura do site é a grelha de ferro, não a comida. Tudo que separa uma coisa da outra nesta casa é uma barra de ferro vista de perto: aresta superior acesa, corpo escuro, sombra por baixo. Ela atravessa a página inteira, de sangria a sangria, e é a única divisória que existe — não há <hr>, não há hairline solto, não há caixa. O sistema recusa deliberadamente o arranjo padrão da categoria: herói centralizado com foto de bife, grade de cards de cortes, dourado de churrascaria.\n\nO mundo é feito de três matérias: carvão apagado (o chão de tudo), ferro frio (os campos secundários) e brasa (o único acento). O cobre nunca aparece uniforme nem por decoração — ele acende onde o olho está e esfria até o quase-preto no repouso, carregado elemento a elemento por --heat e --hot. Fotografia real, low key e quente, faz o trabalho pesado; nenhuma superfície finge textura em CSS.\n\nA tipografia opõe um didone de contraste alto (Bodoni Moda, haste fina, terminais em bola) a um sans geométrico-humanista (Manrope). Títulos em escala grande com entrelinha abaixo de 1, corpo curto, muito ar. Números são medida nesta casa — pesos, graus, dias, preços e horários vão em numerais tabulares.",
+    "keyCharacteristics": [
+      "Uma só divisória no sistema: a barra da grelha, 3px, renderizada como matéria.",
+      "Zero cards. Zero sombra de SaaS. Raio máximo de 2px.",
+      "O acento cobre é raro e estado-dependente, nunca decorativo.",
+      "Fundo #090909 chapado, com uma única brasa distante no topo (radial fixo).",
+      "Movimento só sobe, irradia ou esfria — nada desliza de lado."
+    ],
+    "rules": [
+      {
+        "name": "A Regra do Cobre Raro",
+        "body": "O acento ocupa menos de 5% de qualquer tela. Se dois objetos de cobre estão acesos ao mesmo tempo na mesma dobra, um deles está errado.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Repouso Frio",
+        "body": "Nenhum elemento nasce no pico de calor. --ember-hot é resposta a hover, foco ou proximidade do ponteiro; em repouso o objeto fica em --ember ou apagado. A única exceção permitida é a aresta da barra do herói, que abre a página acesa a 0.85 porque é ela que anuncia o mundo.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Dourado Proibido",
+        "body": "Âmbar em repouso vira dourado, e dourado é a estética que este mundo recusa. Fotografia com luz dourada de bar, garrafa ou lustre não entra no acervo.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Registro Estampado",
+        "body": "Texto miúdo desta casa é sempre caixa alta, 600, com 0.2em de tracking e entrelinha 1.7. Com tracking largo e entrelinha 1, duas linhas encostam uma na outra.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra do Sem-Eyebrow",
+        "body": "Nenhum rótulo miúdo acima de um heading. Rótulo acima de título enfraquece o título; se a informação importa, ela vira o próprio título ou desce para o registro de função, embaixo.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra do Número Medido",
+        "body": "Todo número que é medida — peso, grau, dia, preço, hora, telefone — leva .tnum (tabular-nums lining-nums). Números de largura variável tremem quando o valor muda.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra das Doze Colunas de Verdade",
+        "body": "Numa grade de 12 colunas, gap é sempre declarado como row-gap e column-gap separados. gap: 6vw escrito para o empilhamento do celular vira onze goteiras de 90px no desktop, sobra 30px por coluna e \"1 / span 5\" deixa de significar cinco colunas. Goteira de coluna do sistema: clamp(var(--s-5), 2.4vw, var(--s-7)).",
+        "section": "layout"
+      },
+      {
+        "name": "A Regra da Recomposição",
+        "body": "Uma faixa de largura que só encolhe o layout de cima está errada. Cada ponto de virada recompõe: a banda de corte vira foto ao lado do texto entre 620 e 1023 porque empilhada em 3:2 na largura toda ela passa de 500px de altura e a seção vira um rolo.",
+        "section": "layout"
+      },
+      {
+        "name": "A Regra da Barra Única",
+        "body": "Toda divisória do site sai de --grate-h (deitada) ou --grate-v (de pé), 3px, com aresta acesa, corpo e sombra. 1px solid como separador é proibido em qualquer componente.",
+        "section": "elevation"
+      },
+      {
+        "name": "A Regra do Plano",
+        "body": "Superfícies não flutuam. Se um elemento precisa se destacar, ele escurece o vizinho ou ganha uma barra, nunca uma sombra.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do usar --grate-h / --grate-v para qualquer divisória, em qualquer componente novo.",
+      "Do deixar todo objeto de cobre nascer frio e acender por hover, foco ou proximidade.",
+      "Do carregar estado visual em custom property no próprio elemento (--heat, --hot, --btn-heat) em vez de classes de estado.",
+      "Do aplicar .tnum em todo número que seja medida.",
+      "Do separar row-gap de column-gap em qualquer grade de 12 colunas.",
+      "Do colocar o clip ou a transformação de entrada no filho, nunca no elemento observado.",
+      "Do manter a fotografia low key, quente, com fogo real e fundo escuro — e trocar tudo por src local em src/data/images.ts quando o acervo do cliente chegar.",
+      "Do respeitar prefers-reduced-motion: as durações caem para 1ms e nada fica escondido."
+    ],
+    "donts": [
+      "Don't usar 1px solid como separador, nem <hr>.",
+      "Don't criar card, moldura, caixa com borda em volta de conteúdo ou raio acima de 2px.",
+      "Don't usar sombra — nenhuma, em nenhum estado.",
+      "Don't pendurar rótulo miúdo acima de um heading.",
+      "Don't deixar --ember-hot como estado de repouso de nada que ocupe área.",
+      "Don't trazer luz dourada, garrafa, lustre de bar ou qualquer fotografia clara para o acervo.",
+      "Don't escrever valor solto de cor, espaço, tipo ou tempo fora de tokens.css.",
+      "Don't fazer nada deslizar lateralmente para entrar: o movimento deste mundo sobe, irradia ou esfria."
+    ]
+  }
+}

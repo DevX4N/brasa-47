@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Manifesto from '../components/Manifesto.astro';
+import Registers from '../components/Registers.astro';
+import Cuts from '../components/Cuts.astro';
+import OpenKitchen from '../components/OpenKitchen.astro';
+import Chef from '../components/Chef.astro';
+import Gallery from '../components/Gallery.astro';
+import Ambience from '../components/Ambience.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Reservation from '../components/Reservation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base>
+  <Header />
+  <main id="conteudo">
+    <Hero />
+    <Manifesto />
+    <Registers />
+    <Cuts />
+    <OpenKitchen />
+    <Chef />
+    <Gallery />
+    <Ambience />
+    <Testimonials />
+    <Reservation />
+  </main>
+  <Footer />
+</Base>
+
+<script>
+  import '../scripts/fire';
+</script>

@@ -1,0 +1,164 @@
+---
+import Grate from './Grate.astro';
+import { photos, img, srcset } from '../data/images';
+import { sequence } from '../data/site';
+
+const p = photos.cozinha;
+---
+
+<section class="ok" id="a-casa" aria-labelledby="ok-t">
+  <div class="ok__stage">
+    <div class="ok__media" data-parallax="0.12">
+      <img
+        src={img(p, 1600)}
+        srcset={srcset(p, [900, 1400, 2000, 2600])}
+        sizes="100vw"
+        alt={p.alt}
+        width="2000"
+        height="1125"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="ok__wash" aria-hidden="true"></div>
+    </div>
+
+    <div class="ok__claim shell">
+      <h2 class="ok__title display" id="ok-t" data-rise>
+        Você não assiste ao fogo.<br />
+        <em>Você faz parte dele.</em>
+      </h2>
+      <p class="ok__lead lead" data-rise style="--rise-delay:130ms">
+        A grelha fica no salão. De qualquer mesa dá para ver a peça entrando,
+        o ponto sendo conferido e a fatia saindo — é a mesma distância que
+        separa a cozinha do prato.
+      </p>
+    </div>
+  </div>
+
+  <div class="ok__seq shell">
+    <ol>
+      {sequence.map((s, i) => (
+        <li data-rise style={`--rise-delay:${i * 100}ms`}>
+          <Grate hot="6%" />
+          <div class="ok__step">
+            <p class="ok__n tnum">{s.n}</p>
+            <h3 class="ok__step-t display">{s.title}</h3>
+            <p class="ok__step-b">{s.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .ok {
+    padding-bottom: var(--section-tight);
+  }
+
+  .ok__stage {
+    position: relative;
+    min-height: clamp(520px, 86svh, 860px);
+    display: grid;
+    align-items: end;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .ok__media {
+    position: absolute;
+    inset: -8% 0;
+    z-index: -1;
+    will-change: transform;
+  }
+
+  .ok__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.8) contrast(1.14) brightness(0.72);
+  }
+
+  /* O claim mora no canto frio: a luz do fogo fica do outro lado. */
+  .ok__wash {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(9, 9, 9, 0.94) 0%, rgba(9, 9, 9, 0.5) 40%, rgba(9, 9, 9, 0.95) 92%),
+      linear-gradient(90deg, rgba(9, 9, 9, 0.88) 0%, rgba(9, 9, 9, 0.42) 46%, transparent 78%);
+  }
+
+  .ok__claim {
+    padding-block: var(--s-9) clamp(var(--s-8), 8vw, var(--s-10));
+  }
+
+  .ok__title {
+    font-size: var(--t-lg);
+    font-weight: 400;
+    max-width: 17ch;
+  }
+
+  .ok__title em {
+    font-style: italic;
+    color: var(--ember-hot);
+  }
+
+  .ok__lead {
+    margin-top: var(--s-6);
+    max-width: 44ch;
+  }
+
+  .ok__seq ol {
+    list-style: none;
+    padding: 0;
+    margin-top: clamp(var(--s-8), 7vw, var(--s-10));
+    display: grid;
+    gap: 0;
+  }
+
+  .ok__step {
+    padding-block: var(--s-6) var(--s-8);
+  }
+
+  .ok__n {
+    font-size: var(--t-micro);
+    letter-spacing: var(--track-micro);
+    font-weight: 700;
+    color: var(--ember);
+  }
+
+  .ok__step-t {
+    font-family: var(--display);
+    font-size: clamp(1.7rem, 4.6vw, 2.1rem);
+    font-weight: 400;
+    line-height: 1;
+    margin-top: var(--s-4);
+  }
+
+  .ok__step-b {
+    margin-top: var(--s-4);
+    color: var(--ash);
+    font-size: 0.9375rem;
+    line-height: 1.66;
+    max-width: 40ch;
+  }
+
+  @media (min-width: 880px) {
+    .ok__seq ol {
+      grid-template-columns: 1.05fr 1fr 0.95fr;
+      column-gap: clamp(var(--s-6), 4vw, var(--s-9));
+      align-items: start;
+    }
+
+    /* A sequência desce em degrau: fogo, tempo, ingrediente acontecem
+       um depois do outro — três colunas paradas na mesma linha são um
+       card row sem o card. */
+    .ok__seq li:nth-child(2) {
+      margin-top: clamp(var(--s-7), 4vw, var(--s-9));
+    }
+
+    .ok__seq li:nth-child(3) {
+      margin-top: clamp(var(--s-9), 8vw, 160px);
+    }
+  }
+</style>

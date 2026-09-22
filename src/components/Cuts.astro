@@ -1,0 +1,330 @@
+---
+import Grate from './Grate.astro';
+import { img, srcset, cutPhotos } from '../data/images';
+import { cuts } from '../data/site';
+
+const photoFor = (id: string) => cutPhotos[
+  ({ ancho: 'ancho', 'prime-rib': 'primeRib', 'short-rib': 'shortRib', tomahawk: 'tomahawk' } as const)[
+    id as 'ancho' | 'prime-rib' | 'short-rib' | 'tomahawk'
+  ]
+];
+
+const brl = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+  minimumFractionDigits: 0,
+});
+---
+
+<section class="cuts section" id="menu" aria-labelledby="cuts-t">
+  <div class="shell">
+    <header class="cuts__head">
+      <h2 class="cuts__title display" id="cuts-t" data-rise>
+        Cortes escolhidos.<br />Fogo no ponto certo.
+      </h2>
+      <p class="cuts__note stamp" data-rise style="--rise-delay:110ms">
+        Quatro do balcão · o menu completo muda com a maturação
+      </p>
+    </header>
+  </div>
+
+  {/*
+    No desktop a lista é o palco: as quatro fotos ocupam o mesmo lugar à
+    direita e só a da linha sob o ponteiro fica acesa. Miniatura por linha
+    transformava a seção numa tabela de cardápio.
+  */}
+  <div class="shell">
+    <ul class="cuts__list">
+      {cuts.map((cut, i) => {
+        const p = photoFor(cut.id);
+        return (
+          <li class="cut" data-cut>
+            <div class="cut__rule"><Grate hot="8%" /></div>
+
+            <div class="cut__in" data-rise style={`--rise-delay:${i * 70}ms`}>
+              <h3 class="cut__name display">
+                {cut.name}
+                {cut.weight && <span class="cut__wt tnum">{cut.weight}</span>}
+              </h3>
+              <p class="cut__price tnum">{brl.format(cut.price)}</p>
+              <p class="cut__detail">{cut.detail}</p>
+            </div>
+
+            <div class="cut__fig">
+              <img
+                src={img(p, 880, 3 / 2)}
+                srcset={srcset(p, [560, 880, 1200], 3 / 2)}
+                sizes="(min-width: 1024px) 600px, 92vw"
+                alt={p.alt}
+                width="880"
+                height="587"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+
+  <div class="shell">
+    <Grate hot="92%" />
+    <div class="cuts__foot">
+      <a class="btn btn--quiet" href="#reservar">
+        Reservar mesa
+        <svg class="btn__arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
+          <path d="M1 5h13M10.5 1 14.5 5l-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" />
+        </svg>
+      </a>
+      <p class="stamp cuts__disc">Carta completa apresentada na casa · preços por porção individual</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cuts {
+    padding-block: var(--section-tight);
+  }
+
+  .cuts__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--s-5);
+    margin-bottom: clamp(var(--s-8), 7vw, var(--s-10));
+  }
+
+  .cuts__title {
+    font-size: var(--t-lg);
+    font-weight: 400;
+  }
+
+  .cuts__note {
+    color: var(--ash-dim);
+    line-height: 1.8;
+    max-width: 30ch;
+  }
+
+  .cuts__list {
+    list-style: none;
+    padding: 0;
+    position: relative;
+  }
+
+  .cut {
+    --heat: 0;
+    position: relative;
+  }
+
+  .cut__in {
+    display: grid;
+    gap: var(--s-4);
+    padding-block: var(--s-6) var(--s-7);
+  }
+
+  .cut__name {
+    font-family: var(--display);
+    font-size: clamp(1.9rem, 6.2vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    transition: color var(--t-mid) var(--ease);
+  }
+
+  .cut__wt {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ember);
+  }
+
+  .cut__detail {
+    color: var(--ash);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    max-width: 38ch;
+    transition: color var(--t-mid) var(--ease);
+  }
+
+  .cut__price {
+    font-family: var(--display);
+    font-size: clamp(1.3rem, 4.6vw, 1.6rem);
+    font-weight: 500;
+    color: var(--bone);
+    letter-spacing: -0.01em;
+  }
+
+  .cut__fig {
+    overflow: hidden;
+    background: var(--iron);
+  }
+
+  .cut__fig img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.92) contrast(1.06) brightness(0.9);
+    transition: filter var(--t-slow) var(--ease), transform 1.4s var(--ease);
+  }
+
+  .cuts__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-5);
+    padding-top: var(--s-7);
+  }
+
+  .cuts__disc {
+    color: var(--ash-dim);
+    letter-spacing: 0.14em;
+  }
+
+  /* --- celular: nome e preço na mesma linha, foto embaixo ------- */
+  @media (max-width: 1023px) {
+    .cut__in {
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      column-gap: var(--s-5);
+    }
+
+    .cut__name {
+      grid-column: 1;
+    }
+
+    .cut__price {
+      grid-column: 2;
+      grid-row: 1;
+      text-align: right;
+    }
+
+    .cut__detail {
+      grid-column: 1 / -1;
+    }
+
+    .cut__fig {
+      aspect-ratio: 3 / 2;
+      margin-top: var(--s-2);
+    }
+  }
+
+  /* --- tablet: a foto vai para o lado, senão a seção vira rolo --- */
+  @media (min-width: 620px) and (max-width: 1023px) {
+    .cut {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 34%;
+      column-gap: clamp(var(--s-5), 4vw, var(--s-7));
+      align-items: start;
+    }
+
+    .cut__rule {
+      grid-column: 1 / -1;
+    }
+
+    .cut__in {
+      grid-column: 1;
+      padding-block: var(--s-7);
+    }
+
+    .cut__fig {
+      grid-column: 2;
+      align-self: center;
+      aspect-ratio: 4 / 3;
+      margin-top: 0;
+    }
+  }
+
+  /* --- desktop: lista à esquerda, um só palco à direita --------- */
+  @media (min-width: 1024px) {
+    .cuts__title {
+      max-width: 20ch;
+    }
+
+    .cut {
+      position: static;
+    }
+
+    .cuts__list {
+      padding-right: 46%;
+      min-height: 560px;
+    }
+
+    .cut__in {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: baseline;
+      column-gap: var(--s-7);
+      row-gap: var(--s-4);
+      padding-block: var(--s-7) var(--s-8);
+    }
+
+    .cut__name {
+      grid-column: 1;
+      font-size: clamp(2.5rem, 3.4vw, 3.4rem);
+      letter-spacing: -0.03em;
+    }
+
+    .cut__price {
+      grid-column: 2;
+      grid-row: 1;
+      text-align: right;
+      font-size: 1.7rem;
+    }
+
+    .cut__detail {
+      grid-column: 1 / -1;
+      max-width: 42ch;
+    }
+
+    .cut__fig {
+      position: absolute;
+      top: 50%;
+      left: 57%;
+      width: 43%;
+      max-width: 470px;
+      aspect-ratio: 4 / 5;
+      transform: translateY(-50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity var(--t-slow) var(--ease);
+    }
+
+    /* Em repouso a lista mostra o primeiro corte; com o ponteiro
+       dentro dela, só a linha apontada fica acesa. */
+    @media (hover: hover) {
+      .cut:first-child .cut__fig {
+        opacity: 1;
+      }
+
+      .cuts__list:hover .cut:first-child .cut__fig {
+        opacity: 0;
+      }
+
+      .cut:hover .cut__fig {
+        opacity: 1;
+      }
+
+      .cut:hover .cut__name {
+        color: var(--ember-hot);
+      }
+
+      .cut:hover .cut__detail {
+        color: var(--bone);
+      }
+    }
+
+    /* Tela larga sem ponteiro: fica a foto do primeiro corte. */
+    @media (hover: none) {
+      .cut:first-child .cut__fig {
+        opacity: 1;
+      }
+    }
+  }
+</style>

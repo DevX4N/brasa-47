@@ -1,0 +1,180 @@
+---
+import Grate from './Grate.astro';
+import { site } from '../data/site';
+
+const links = [
+  { label: 'Menu', href: '#menu' },
+  { label: 'Reservas', href: '#reservar' },
+  { label: 'Instagram', href: 'https://instagram.com', external: true },
+  { label: 'Localização', href: 'https://maps.google.com/?q=Batel,Curitiba', external: true },
+  { label: 'Contato', href: `tel:${site.phoneHref}` },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="ft">
+  <div class="shell">
+    <Grate hot="50%" />
+  </div>
+
+  <div class="shell ft__grid">
+    <div class="ft__id">
+      <p class="ft__name display">{site.name}</p>
+      <p class="ft__sig stamp">{site.signature}</p>
+    </div>
+
+    <nav class="ft__nav" aria-label="Rodapé">
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              target={l.external ? '_blank' : undefined}
+              rel={l.external ? 'noopener noreferrer' : undefined}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="ft__info">
+      <p>
+        {site.hours.days}<br />
+        <span class="tnum">{site.hours.time}</span>
+      </p>
+      <p>
+        {site.address.street} · {site.address.district}<br />
+        {site.address.city} — {site.address.state}
+      </p>
+    </div>
+  </div>
+
+  <div class="ft__mark" aria-hidden="true">
+    <span>BRASA 47</span>
+  </div>
+
+  <div class="shell ft__base">
+    <Grate soft draw={false} />
+    <div class="ft__base-in">
+      <p class="stamp">© <span class="tnum">{year}</span> {site.name}</p>
+      <p class="stamp">Projeto fictício · peça de portfólio</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ft {
+    padding-top: var(--section-tight);
+    background: var(--void);
+    overflow: hidden;
+  }
+
+  .ft__grid {
+    display: grid;
+    gap: clamp(var(--s-7), 5vw, var(--s-9));
+    padding-top: clamp(var(--s-7), 5vw, var(--s-9));
+  }
+
+  .ft__name {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .ft__sig {
+    margin-top: var(--s-3);
+    color: var(--ash-dim);
+    letter-spacing: 0.22em;
+  }
+
+  .ft__nav ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--s-3);
+  }
+
+  .ft__nav a {
+    display: inline-block;
+    font-size: 0.9375rem;
+    color: var(--ash);
+    padding-block: var(--s-1);
+    border-bottom: 1px solid transparent;
+    transition: color var(--t-mid) var(--ease), border-color var(--t-mid) var(--ease);
+  }
+
+  .ft__nav a:hover,
+  .ft__nav a:focus-visible {
+    color: var(--bone);
+    border-bottom-color: var(--ember);
+  }
+
+  .ft__info {
+    display: grid;
+    gap: var(--s-5);
+    color: var(--ash);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  /* A marca gigante: aresta de ferro, sem preenchimento.
+     Sangra nas laterais de propósito — é matéria, não logotipo. */
+  .ft__mark {
+    margin-top: clamp(var(--s-8), 8vw, 148px);
+    line-height: 0.78;
+    text-align: center;
+    user-select: none;
+  }
+
+  .ft__mark span {
+    display: block;
+    font-family: var(--display);
+    font-size: clamp(4.5rem, 21vw, 19rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(243, 239, 231, 0.13);
+    white-space: nowrap;
+  }
+
+  @supports not (-webkit-text-stroke: 1px red) {
+    .ft__mark span {
+      color: rgba(243, 239, 231, 0.09);
+    }
+  }
+
+  .ft__base {
+    margin-top: clamp(var(--s-6), 4vw, var(--s-8));
+  }
+
+  .ft__base-in {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3) var(--s-6);
+    justify-content: space-between;
+    padding-block: var(--s-6);
+    padding-bottom: max(var(--s-6), env(safe-area-inset-bottom));
+    color: var(--ash-dim);
+  }
+
+  @media (min-width: 720px) {
+    .ft__grid {
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      align-items: start;
+    }
+    .ft__info {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-5);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ft__grid {
+      grid-template-columns: 1.4fr 0.7fr 1.1fr;
+    }
+  }
+</style>

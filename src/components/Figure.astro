@@ -1,0 +1,58 @@
+---
+import { img, srcset, type Photo } from '../data/images';
+
+interface Props {
+  photo: Photo;
+  sizes: string;
+  widths?: number[];
+  /** proporção de exibição, quando difere da nativa da foto */
+  ratio?: number;
+  /** primeira dobra: carrega cedo, sem lazy */
+  priority?: boolean;
+  /** revela subindo, como calor */
+  unveil?: boolean;
+  lift?: boolean;
+  delay?: number;
+  class?: string;
+}
+
+const {
+  photo,
+  sizes,
+  widths = [480, 800, 1200, 1800],
+  ratio,
+  priority = false,
+  unveil = true,
+  lift = false,
+  delay = 0,
+  class: cls = '',
+} = Astro.props;
+
+const r = ratio ?? photo.ratio;
+const set = srcset(photo, widths, r);
+const decorative = photo.alt === '';
+---
+
+{/*
+  O clip fica na imagem, nunca na <figure>: quem é observado pelo
+  IntersectionObserver não pode zerar a própria área, ou nunca reaparece.
+*/}
+<figure
+  class:list={['fig', lift && 'fig--lift', cls]}
+  style={`aspect-ratio:${r};${delay ? `--rise-delay:${delay}ms` : ''}`}
+  data-unveil={unveil ? '' : undefined}
+>
+  <img
+    src={img(photo, widths[widths.length - 2] ?? 1200, r)}
+    srcset={set || undefined}
+    sizes={sizes}
+    alt={photo.alt}
+    aria-hidden={decorative ? 'true' : undefined}
+    width={1600}
+    height={Math.round(1600 / r)}
+    loading={priority ? 'eager' : 'lazy'}
+    decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    style={photo.focus ? `object-position:${photo.focus}` : undefined}
+  />
+</figure>

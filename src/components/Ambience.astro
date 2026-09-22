@@ -1,0 +1,109 @@
+---
+import Figure from './Figure.astro';
+import Grate from './Grate.astro';
+import { ambiencePhotos } from '../data/images';
+
+/* Quatro tracinhos numa coluna eram uma lista com bullet decorativo.
+   A frase já existe inteira — ela só precisava ser dita de uma vez. */
+---
+
+<section class="amb" aria-labelledby="amb-t">
+  <div class="shell">
+    <Grate hot="16%" />
+  </div>
+
+  <div class="shell amb__grid">
+    <div class="amb__text">
+      <h2 class="amb__title display" id="amb-t" data-rise>
+        Uma noite<br />para lembrar.
+      </h2>
+      <p class="amb__beats lead" data-rise style="--rise-delay:120ms">
+        Luz baixa. Fogo à vista. Boa música. Mesa preparada.
+      </p>
+    </div>
+
+    <div class="amb__a">
+      <Figure
+        photo={ambiencePhotos[0]}
+        sizes="(min-width: 1024px) 42vw, 90vw"
+        widths={[480, 820, 1200]}
+        lift
+      />
+    </div>
+
+    <div class="amb__b" data-parallax="0.06">
+      <Figure
+        photo={ambiencePhotos[1]}
+        sizes="(min-width: 1024px) 46vw, 90vw"
+        widths={[560, 900, 1300]}
+        delay={140}
+        lift
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* O silêncio grande é o dos depoimentos, logo abaixo. Somar o padding
+     de baixo daqui ao de cima de lá abria um buraco de 650px. */
+  .amb {
+    padding-block: var(--section-tight);
+  }
+
+  .amb__grid {
+    display: grid;
+    row-gap: clamp(var(--s-5), 4vw, var(--s-8));
+    column-gap: clamp(var(--s-5), 2.4vw, var(--s-7));
+    padding-top: clamp(var(--s-7), 4.5vw, var(--s-9));
+  }
+
+  .amb__title {
+    font-size: var(--t-lg);
+    font-weight: 400;
+  }
+
+  .amb__beats {
+    margin-top: clamp(var(--s-6), 4vw, var(--s-7));
+    color: var(--ash);
+    max-width: 36ch;
+  }
+
+  @media (min-width: 620px) {
+    .amb__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .amb__text {
+      grid-column: 1 / -1;
+    }
+    .amb__b {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .amb__grid {
+      grid-template-columns: repeat(12, 1fr);
+      align-items: start;
+    }
+
+    .amb__text {
+      grid-column: 1 / span 4;
+      grid-row: 1;
+      padding-top: var(--s-6);
+    }
+
+    /* A vertical entra alta e à direita; a horizontal desce e volta
+       para a esquerda, passando por baixo do texto. Duas fotos que se
+       cruzam valem mais que três enfileiradas. */
+    .amb__a {
+      grid-column: 8 / span 5;
+      grid-row: 1;
+    }
+
+    .amb__b {
+      grid-column: 1 / span 7;
+      grid-row: 1;
+      margin-top: clamp(var(--s-10), 22vw, 360px);
+    }
+  }
+</style>

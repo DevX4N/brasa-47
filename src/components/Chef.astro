@@ -1,0 +1,99 @@
+---
+import Figure from './Figure.astro';
+import Grate from './Grate.astro';
+import { photos } from '../data/images';
+---
+
+<section class="chef section" aria-labelledby="chef-t">
+  <div class="shell">
+    <Grate hot="30%" />
+  </div>
+
+  <div class="shell chef__grid">
+    <div class="chef__media">
+      <Figure
+        photo={photos.chef}
+        sizes="(min-width: 1024px) 40vw, 90vw"
+        widths={[420, 700, 1000, 1400]}
+        lift
+      />
+    </div>
+
+    <div class="chef__text">
+      <h2 class="chef__name display" id="chef-t" data-rise>
+        Mateo<br />Ferraz
+      </h2>
+
+      <div class="chef__body" data-rise style="--rise-delay:170ms">
+        <p class="lead">
+          Depois de passar por cozinhas em Buenos Aires, São Paulo e Barcelona,
+          Mateo voltou ao Brasil com uma obsessão: <strong>entender o fogo.</strong>
+        </p>
+        <p class="lead">
+          No Brasa 47, técnica e simplicidade dividem a mesma grelha.
+        </p>
+      </div>
+
+      <p class="chef__role stamp">Por trás da brasa · chef executivo desde a abertura</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .chef {
+    padding-block: var(--section-tight) var(--section);
+  }
+
+  .chef__grid {
+    display: grid;
+    row-gap: clamp(var(--s-7), 6vw, var(--s-9));
+    column-gap: clamp(var(--s-5), 2.4vw, var(--s-7));
+    padding-top: clamp(var(--s-7), 4.5vw, var(--s-9));
+  }
+
+  /* A assinatura da casa: o nome é o título da seção, em escala de
+     display. Rótulo miúdo acima de heading enfraquece o heading — o que
+     era eyebrow virou o registro de função, embaixo. */
+  .chef__name {
+    font-family: var(--display);
+    font-size: clamp(3.4rem, 11.5vw, 6.4rem);
+    font-weight: 400;
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+  }
+
+  .chef__body {
+    margin-top: clamp(var(--s-6), 4vw, var(--s-8));
+    display: grid;
+    gap: var(--s-5);
+  }
+
+  .chef__role {
+    margin-top: var(--s-7);
+    color: var(--ash-dim);
+    letter-spacing: 0.16em;
+  }
+
+  @media (min-width: 1024px) {
+    /* Alinhado pela base: com `center` sobravam ~200px mortos embaixo
+       do texto enquanto a foto descia mais. */
+    .chef__grid {
+      grid-template-columns: repeat(12, 1fr);
+      align-items: end;
+    }
+
+    .chef__media {
+      grid-column: 1 / span 5;
+    }
+
+    .chef__text {
+      grid-column: 7 / span 6;
+    }
+
+    /* O nome ultrapassa a coluna e encosta na foto — a assinatura invade. */
+    .chef__name {
+      margin-left: -0.06em;
+      transform: translateX(-4%);
+    }
+  }
+</style>

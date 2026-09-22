@@ -1,0 +1,33 @@
+---
+/**
+ * A barra da grelha — primitiva estrutural do site.
+ * Substitui toda e qualquer divisória. Nunca usar <hr> ou border solto.
+ *
+ * O invólucro existe para o IntersectionObserver: um elemento que se
+ * esconde com scaleX(0) zera a própria área e nunca volta a intersectar.
+ * Quem é observado (o invólucro) nunca é transformado.
+ */
+interface Props {
+  /** versão fina, para separações de menor hierarquia */
+  soft?: boolean;
+  /** desenha ao entrar na tela, irradiando do ponto quente */
+  draw?: boolean;
+  /** posição do ponto quente ao longo da barra */
+  hot?: string;
+  /** calor inicial, 0–1 */
+  heat?: number;
+  class?: string;
+}
+const { soft = false, draw = true, hot = '50%', heat, class: cls = '' } = Astro.props;
+const style = `--hot:${hot}` + (heat !== undefined ? `;--heat:${heat}` : '');
+---
+
+<div class="grate-w" data-draw={draw ? '' : undefined} aria-hidden="true">
+  <div class:list={['grate', soft && 'grate--soft', cls]} style={style}></div>
+</div>
+
+<style>
+  .grate-w {
+    width: 100%;
+  }
+</style>
